@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
 import Movie from '../components/Movie'
+import Navigation from '../components/Navigation'
 
 /* Movie API */
 /* return information of movie with matching id */
@@ -29,19 +30,22 @@ function Detail() {
       {loading ? (
         <h3>Loading...</h3>
       ) : (
-        <Movie
-          detail={true}
-          id={movie.id}
-          large_cover_image={movie.large_cover_image}
-          title={movie.title}
-          description_full={movie.description_full}
-          genres={movie.genres}
-          year={movie.year}
-          rating={movie.rating}
-          runtime={movie.runtime}
-          likecount={movie.like_count}
-          downloadcount={movie.download_count}
-        />
+        <div>
+          <Navigation />
+          <Movie
+            detail={true}
+            id={movie.id}
+            large_cover_image={movie.large_cover_image}
+            title={movie.title}
+            description_full={movie.description_full}
+            genres={movie.genres}
+            year={movie.year}
+            rating={movie.rating}
+            runtime={movie.runtime}
+            likecount={movie.like_count}
+            downloadcount={movie.download_count}
+          />
+        </div>
       )}
     </div>
   )
