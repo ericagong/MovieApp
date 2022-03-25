@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
 
+import Movie from './components/Movie'
+
 /* Movie List API */
 /* returns year-based sorted array with movie information whose rating is greater than 8.5*/
 /* https://yts.mx/api/v2/list_movies.json?minimum_rating=8.5&sort_by=year */
@@ -28,16 +30,13 @@ function App() {
         <h1>Loading...</h1>
       ) : (
         movies.map((movie) => (
-          <div key={movie.id}>
-            <img src={movie.medium_cover_image} alt="movie_img_alt" />
-            <h3>{movie.title}</h3>
-            <p>{movie.summary}</p>
-            <ul>
-              {movie.genres.map((genre, index) => (
-                <li key={index}>{genre}</li>
-              ))}
-            </ul>
-          </div>
+          <Movie
+            key={movie.id}
+            medium_cover_image={movie.medium_cover_image}
+            title={movie.title}
+            summary={movie.summary}
+            genres={movie.genres}
+          />
         ))
       )}
     </div>
