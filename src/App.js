@@ -1,8 +1,18 @@
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+
+import Home from './routes/Home'
+import Detail from './routes/Detail'
+
 function App() {
   return (
-    <div className="App">
-      <h1>Hi</h1>
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/movie/:id" component={Detail} />
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
+    </Router>
   )
 }
 
