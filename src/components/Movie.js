@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
+import styles from './Movie.module.css'
+
 function Movie({
   detail,
   id,
@@ -19,18 +21,23 @@ function Movie({
   const DetailInfo = () => {
     return (
       <div className="detailInfo">
-        <h3>{`YEAR ${year} | RATING ${rating} | RUNTIME ${runtime}mins`}</h3>
-        <h3>{`LIKES ${likecount} | DOWNLOADS ${downloadcount}`}</h3>
+        <h3
+          className={styles.movie__detail}
+        >{`YEAR ${year} | RATING ${rating} | RUNTIME ${runtime}mins`}</h3>
+        <h3
+          className={styles.movie__detail}
+        >{`LIKES ${likecount} | DOWNLOADS ${downloadcount}`}</h3>
       </div>
     )
   }
   return (
-    <div>
+    <div className={styles.movie}>
       <img
+        className={styles.movie__img}
         src={detail ? large_cover_image : medium_cover_image}
         alt="movie_img_alt"
       />
-      <h3>
+      <h3 className={styles.movie__title}>
         {/* a tag refresh browser */}
         {/* <a href="/movie">{title}</a> */}
         {/* Link does NOT refresh browser */}
@@ -38,7 +45,7 @@ function Movie({
       </h3>
       <p>{detail ? description_full : summary}</p>
       {detail ? <DetailInfo /> : null}
-      <ul>
+      <ul className={styles.movie__genres}>
         {genres.map((genre, index) => (
           <li key={index}>{genre}</li>
         ))}

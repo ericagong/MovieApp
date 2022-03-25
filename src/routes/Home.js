@@ -25,7 +25,7 @@ function Home() {
   }, [])
   console.log(movies)
   return (
-    <div className="App">
+    <div>
       {loading ? (
         <h1>Loading...</h1>
       ) : (
